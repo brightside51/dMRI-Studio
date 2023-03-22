@@ -1,0 +1,7 @@
+#!/bin/bash
+#SBATCH --job-name=conclayer_v2_11
+#SBATCH --partition=cubric-dgx
+#SBATCH --gpus=1
+#SBATCH -o conclayer_v2_11_%j.out
+#SBATCH -e conclayer_v2_11_%j.err
+/home/sapap9/miniconda2/envs/MUDIenv2/bin/python trainer_files/zebra_ca/trainer_predict_v2.py --data_file /home/sapap9/PythonCode/MUDI/data/data_.hdf5 --header_file /home/sapap9/PythonCode/MUDI/data/header_.csv --input_output_size 1344 --latent_size 500 --latent_size2 7 --encoder2_hidden_layers 2 --learning_rate 1e-3 --gpus=1 --max_epochs 1 --reg_lambda 0.0 --reg_threshold 0.0 --batch_size 256 --val_subj 11 --seed_number 42 --path_save_param /cubric/data/sapap9/runs_indices_results/synthetic/integrated_seed42_subj11_val_maarten_noreg/param11_integrated_seed_42.txt --path_save /cubric/data/sapap9/runs_indices_results/synthetic/integrated_seed42_subj11_val_maarten_noreg/pred_sig11_seed_42.txt --hparams /cubric/data/sapap9/runs_indices_results/synthetic/integrated_seed42_subj11_val_maarten_noreg/version_2/hparams.yaml --checkpoint /cubric/data/sapap9/runs_indices_results/synthetic/integrated_seed42_subj11_val_maarten_noreg/version_2/checkpoints/epoch=4997-step=9151337.ckpt --in_memory
