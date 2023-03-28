@@ -1,7 +1,0 @@
-#!/bin/bash
-#SBATCH --job-name=conclayer_v2_13_syn
-#SBATCH --partition=cubric-dgx
-#SBATCH --gpus=1
-#SBATCH -o conclayer_v2_13_syn_%j.out
-#SBATCH -e conclayer_v2_13_syn_%j.err
-/home/sapap9/miniconda2/envs/MUDIenv2/bin/python trainer_files/zebra_ca/trainer_v2.py --data_file /cubric/data/sapap9/data/syn_data/data_syn_.hdf5 --header_file /home/sapap9/PythonCode/MUDI/data/header_.csv --input_output_size 1344 --latent_size 500 --latent_size2 7 --encoder2_hidden_layers 2 --learning_rate 1e-3 --gpus=1 --max_epochs 5000 --reg_lambda 0.0 --reg_threshold 0.0 --batch_size 256 --val_subj 13 --seed_number 42 --in_memory

@@ -1,0 +1,61 @@
+ONLY SELECTION:
+-./trainer_files/only_ca/trainer.py
+Parts to modify only the first time
+	Line 12 -> path of sys.path.insert
+	Line 109 -> path of np.savetxt (save selected indexes). THIS IS A FIXED FOLDER (IT COULD BE CHANGED)
+-./trainer_files/only_ca/trainer_predict.py
+Parts to modify only the first time
+	Line 14 -> path of sys.path.insert
+
+-script_indices:
+Parts to modify only the first time
+	first "python" path (.../python)
+	--data_file (also change for new dataset)
+    	--header_file (also change for new dataset)
+
+Main parameters of the network:
+	--input_output_size (with the MUDI data, don't change for full dataset)
+	--latent_size -> number of target selected indexes
+	--decoder_hidden_layers
+	--gpus=1 (no need to modify, there could be problems for more than 1 gpu)
+	--max_epochs
+	--reg_lambda (if regularisation -> change to 0.1)
+	--reg_threshold (if regularisation -> change to 1.0)
+	--batch_size (it's recommended to use 256)
+	--in_memory (don't remove to run code on GPU)
+	--learning_rate (optional, default 0.001)
+
+Parameters to select validation subject and seed
+	--val_subj (int between 11 and 15, included)
+	--seed_number (optional, default = 42)
+
+
+-script_indices_predict:
+Parts to modify only the first time
+	first "python" path (.../python)
+	--data_file (also change for new dataset)
+    	--header_file (also change for new dataset)
+
+Main parameters of the network:
+	--input_output_size (with the MUDI data, don't change for full dataset)
+	--latent_size -> number of target selected indexes
+	--decoder_hidden_layers
+	--gpus=1 (no need to modify, there could be problems for more than 1 gpu)
+	--max_epochs (DO NOT MODIFY except if the reason is clear)
+	--reg_lambda (if regularisation -> change to 0.1)
+	--reg_threshold (if regularisation -> change to 1.0)
+	--batch_size (it's recommended to use 256)
+	--in_memory (don't remove to run code on GPU)
+	--learning_rate (optional, default 0.001)
+
+Parameters to select validation subject, seed and path to save results (predicted signal)
+	--val_subj (int between 11 and 15, included)
+	--seed_number (optional, default = 42)
+     	--path_save
+
+Parameters to employ the trained network (change for each different job)
+	--hparams
+	--checkpoint
+
+
+	
